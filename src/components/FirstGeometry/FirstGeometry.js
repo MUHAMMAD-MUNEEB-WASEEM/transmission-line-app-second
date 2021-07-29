@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './FirstGeometry.css';
 import math, {
-    atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square
+    atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit
   } from 'mathjs'
 
 function FirstGeometry() {
@@ -37,14 +37,17 @@ function FirstGeometry() {
     const [numberOfInsulators, setNumberOfInsulators] = useState(6);
     const [conductorWeight, setConductorWeight] = useState(19.6);
     const [conductorLength, setConductorLength] = useState(200);
-    const [Pr, setPr] = useState(200*1000000)
+    const [Pr, setPr] = useState(200*1000000);
+    const [span, setSpan] = useState(400);
+    const [interPhaseDistance, setInterPhaseDistance] = useState(8)
+    const [outerPhaseDistance, setOuterPhaseDistance] = useState(16);
+    const [overAllDiameter, setOverAllDiameter] = useState(31.77*0.001);
 
 
     //input
     const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
     const [totalNoOfSpacers, setTotalNoOfSpacers] = useState(0);
     const [spacingBetweenBundledConductors, setSpacingBetweenBundledConductors] = useState(0)
-    const [Cap, setCap] = useState(100);
 
     // const [heightOfTower, setHeightOfTower] = useState(10)
     // const [heightOfTower, setHeightOfTower] = useState(10)
@@ -71,7 +74,33 @@ function FirstGeometry() {
 
     console.log(lineVoltage)
 
-    //Efficiency
+    //L and C
+    const forDeq = multiply(8, 8, 16)
+    const Deq = pow(forDeq, 1/3)
+
+    console.log("Deq", Deq)
+
+    const r = divide(overAllDiameter, 2)
+    console.log("radius", r);
+
+    const GMR = multiply(r, 0.7788);
+    console.log("GMR", GMR) 
+
+    const L = multiply(0.0000002, log(divide(Deq,GMR),2.718))*1000;
+
+    console.log("L", L);
+
+    //C
+
+    const Cap = divide(multiply(2, 3.142, 0.00000000885), log(divide(Deq,GMR),2.718))
+    console.log("Cap", Cap);
+
+    //Y
+
+    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap);
+    console.log("Y", Y);
+
+       //Efficiency
 
     // Vs, Vr, Is, Ir, Pfs, Pfr, Z(R and X), R(L and A), X(L), Pr 
 
@@ -81,13 +110,18 @@ function FirstGeometry() {
     //Ir known from above values
 
     const row = 0.00000000001729 //km
-    const R =  (row*conductorLength)/(5.97*0.000000001)
+    // const R =  (row*conductorLength)/(5.97*0.000000001)
+
+    const R = 0.0547
+
+    const R85 = multiply(divide(add(228, 85), add(228, 32)), R) * conductorLength;
+    console.log("R85", R85);
 
     console.log('resistance', R)
     
-    const XL = 2*3.142*(50)*1.473*0.000000001       //To be updated with new inductance value
+    const XL = multiply(2, 3.142, 50, L)*conductorLength       //To be updated with new inductance value
 
-    const Z = complex(R,XL);
+    const Z = complex(R85,XL);
     // const Z = 0.57 //to be updated with imaginart
     // const a = complex(4, 0);
     // const b = complex(5, 2)
@@ -96,27 +130,55 @@ function FirstGeometry() {
     // console.log(mult)
     // console.log(com)
 
-    const A = add(1,multiply(Z,0.5*0.000001))
-    const C = add(0.000001,multiply(Z,0.25*0.000001))
-    const Ir = Pr/(Math.sqrt(3)*lineVoltage*0.80)
+    console.log("Z", Z)
 
-    const Vs = add(multiply(A,lineVoltage), multiply(Z,Ir))
+    const Pfr = 0.8
+
+    const A = add(1,multiply(Z,multiply(0.5, Y)))
+    console.log("A", A)
+
+    const C = add(1,multiply(Z,multiply(0.25,Y)))
+    console.log("C", C);
+
+    const Ir = divide(Pr,(multiply(sqrt(3),lineVoltage,0.80)));
+    console.log("Ir", Ir);
+
+    const IrAngle = multiply(acos(Pfr),divide(180,3.142));
+    console.log("Ir Angle", IrAngle)
+
+    const RectIr = subtract(288.037, multiply(215.95, sqrt(-1)))
+    console.log("RectIr", RectIr)
+
+    const Vr = multiply(lineVoltage, 0.57735);  //full load
+    console.log("Vr", Vr)
+
+    const Vs = add(multiply(A,Vr), multiply(Z,RectIr))
+    console.log("Vs", Vs);
+
+    const VsMag = sqrt(add(square(Vs.re), square(Vs.im)));
+    console.log("VsMag", VsMag);
+
     const VsAngle = multiply(atan(divide(Vs.im, Vs.re)),180/3.142);
+    console.log("Vsangle", VsAngle);
     
     // const VsLineMagStar = multiply(sqrt(3),sqrt(add(square(Vs.re), square(Vs.im)))) //start connection
     // const VsAngleStar = add(VsAngle, 30);
     // console.log(VsLineMagStar)
       
-    const Is = add(multiply(C, lineVoltage),multiply(A, Ir)) 
+    const Is = add(multiply(C, multiply(Vr,Y)),multiply(A, RectIr))
+    console.log('Is', Is) 
+
+    const IsMag = sqrt(add(square(Is.re), square(Is.im)))
+    console.log("IsMag", IsMag);
+
     const IsAngle = multiply(atan(divide(Is.im, Is.re)),180/3.142);
+    console.log("ISAngle", IsAngle);
 
-    console.log('vs', Vs)
-    console.log('Is', Is)
 
-    const Pfs = cos(add(VsAngle, IsAngle));
+    const Pfs = cos(unit(subtract(VsAngle,IsAngle), 'deg'));
     console.log("power factor", Pfs)
 
-    const Ps = multiply(sqrt(3),(Vs.re),(Is.re),Pfs);
+    const Ps = multiply(3,(VsMag),(IsMag),Pfs);
 
     console.log("sending power", Ps);
 
@@ -124,8 +186,6 @@ function FirstGeometry() {
     const efficiency = multiply(divide(Pr,Ps),100);
 
     console.log(efficiency)
-
-    //Voltage Regulation
 
     //Surge Impedence Loading
 
@@ -135,12 +195,50 @@ function FirstGeometry() {
 
     //Line efficiency
 
-    const R85 = multiply(divide(add(228, 85), add(228, 32)), R) * conductorLength;
-    console.log("R85", R85);
-
     const lineEfficiency = divide(Pr,add(Pr, multiply(3, square(Ir), R85)))*100;
     console.log(lineEfficiency)
 
+    //Voltage Regulation
+    // const ZMag = sqrt(add(square(Z.re), square(Z.im)));
+    // const YMag = sqrt(add(square(Y.re), square(Y.im)));
+    const den = add(1, divide(multiply(Z,Y),2))
+    const denMag = sqrt(add(square(den.re), square(den.im)));
+    console.log("denMag", denMag)
+
+    const VrNoLoad = divide(VsMag,denMag);
+    console.log("VrNoLoad", VrNoLoad);
+
+    const voltageRegulation = multiply(divide(subtract(VrNoLoad,Vr),Vr),100);
+    console.log("Voltage Regulation", voltageRegulation);
+
+
+    //corona loss
+    const P = 74 //cm
+    const theta = 50 //deg C
+
+    const sigma = divide(multiply(3.86,P),add(273,theta))
+    console.log("sigma", sigma);
+
+    const mo = 0.84
+
+
+    const Vd = divide(multiply(3000000, r, sigma, mo, log(divide(Deq,r),2.718)), 1.414) 
+    console.log("Vd", Vd);
+
+    const RatioForF = divide(Vr, Vd);
+    console.log("RatioForF", RatioForF);
+
+    const [F, setF] = useState(0.3)
+
+        // if (RatioForF>=1.4) {
+        //     setF(0.3);
+        // }
+
+    console.log("F", F)
+    const coronaLoss = divide(multiply(0.000021, 50, square(Vr*0.001), F), square(log(divide(Deq,r),10)))
+    console.log("Corona Loss", coronaLoss);
+
+    const totalCoronaLoss = coronaLoss*3*conductorLength;
 
     return (
         <div className="geometry">
@@ -184,16 +282,23 @@ function FirstGeometry() {
                 <h4>Spacing between phase conductors: ft</h4>
                 <h4>Sag:  </h4>
                 <h4>Distance between Towers: m </h4>
+                <h4>Span: {span}m</h4>
                 <h4>Length of Cross Arms: </h4>
                 <h4>Distance between Cross Arms And Tower(optional): </h4>
                 <h4>Total Number of Spacers between two towers: </h4>
-                <h4>Inductance: </h4>
-                <h4>Capacitance: <input value={Cap} onChange={e => setCap(e.target.value)} placeholder="Input Capacitance" type="number"/></h4>
+
+                <h3>Calculated</h3>
+                <h4>Inductance: {L}</h4>
+                <h4>Capacitance: {Cap} F/kM</h4>
+                <h4>Susceptance: j{Y.im} siemens/phase</h4>
                 <h4>Impedence: </h4>
                 <h4>Efficiency: {efficiency}%</h4>
                 <h4>SIL: {SIL} W</h4>
                 <h4>Line Efficiency: {lineEfficiency}</h4>
-
+                <h4>Power Factor: {Pfs}</h4>
+                <h4>Voltage Regulation: {voltageRegulation}</h4>
+                <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
+                <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
                 {/**/}
             </div>  
         </div>
