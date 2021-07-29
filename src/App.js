@@ -3,6 +3,7 @@ import TransmissonLine from './components/TransmissonLine/TransmissonLine';
 import {BrowserRouter as Router,  Routes, Route } from 'react-router-dom'
 import FirstGeometry from './components/FirstGeometry/FirstGeometry';
 import MainTransmission from './components/MainTransmission/MainTransmission';
+import Recommendation from './components/Recommendation/Recommendation';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/fourthgeometry' element={<FirstGeometry/>}></Route>
         <Route path='/fifthgeometry' element={<FirstGeometry/>}></Route>
         <Route path='/sixthgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/recommendation' element={<Recommendation/>}></Route>
       </Routes>
     </Router>
   );

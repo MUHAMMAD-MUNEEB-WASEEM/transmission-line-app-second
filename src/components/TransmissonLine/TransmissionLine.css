@@ -1,14 +1,24 @@
 .transmissonline__heading{
-
-    color: black;
+    align-items: center;
+    text-align: center;
+    color: #F947C6;
+    margin-bottom: 10px;
 }
 
 
 .transmissonline__button{
     margin-top: 20px;
     padding: 10px 15px;
-    background-color: rgb(10, 240, 240);
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     color: black;
     font-weight: 500;
     font-size: 17px;
+    margin-left: 6%;
+    color: white;
+    font-weight: 600;
+}
+.transmissionline__image{
+    width: 200px;
+    height: 200px;
 }
