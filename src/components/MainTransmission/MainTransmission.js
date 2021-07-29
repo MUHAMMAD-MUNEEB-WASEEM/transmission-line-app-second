@@ -30,7 +30,11 @@ function MainTransmission() {
             </div>
         
             <div className="transmisson">
-                <TransmissonLine title="Geometry 1" image={image1}/>
+
+                {/*first geometry*/}
+                <TransmissonLine title="400KV Geometry" image={image1}/>
+               
+               
                 <TransmissonLine title="Geometry 2" image={image2}/>
                 <TransmissonLine title="Geometry 3" image={image3}/>
                 <TransmissonLine title="Geometry 4" image={image4}/>
