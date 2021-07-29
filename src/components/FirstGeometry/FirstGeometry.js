@@ -42,7 +42,9 @@ function FirstGeometry() {
     const [interPhaseDistance, setInterPhaseDistance] = useState(8)
     const [outerPhaseDistance, setOuterPhaseDistance] = useState(16);
     const [overAllDiameter, setOverAllDiameter] = useState(31.77*0.001);
-
+    const [eachDiameter, setEachDiameter] = useState(3.53); //mm
+    const [weight, setWeight] = useState(1999);
+    const [ultimateStrength, setUltimateStrength] = useState(161*1000)
 
     //input
     const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
@@ -240,6 +242,54 @@ function FirstGeometry() {
 
     const totalCoronaLoss = coronaLoss*3*conductorLength;
 
+    //sag
+    const areaOfStrand = multiply(3.142, 0.25, square(eachDiameter/1000)) //sq-m
+    console.log("Area of Strand", areaOfStrand);
+
+    const E = 67200000000 //  N/sq-m
+ 
+    const alpha = 0.0000193 // per deg c
+
+    const WNM= weight*0.001*9.8  // N/m    Ft2
+    console.log("weight N/m", WNM);
+
+    //bad weather
+
+    const Fw = windPressure*9.8*overAllDiameter  //  N/m
+    console.log("Fw", Fw);
+
+    const Ft1 = pow(add(square(WNM), square(Fw)), 0.5);  //   N/m
+    console.log("Ft1", Ft1)
+
+    const T1 = ultimateStrength/2.5     //   5 deg C
+    console.log("T1", T1);
+
+    //erection condition
+    const theta1 = 5 // deg c
+    const theta2 = 30 // deg C
+
+    const AEFl24t2 = divide(multiply(areaOfStrand,E,square(Ft1),square(span)), multiply(24, square(T1)));
+    console.log("AEFl24t2", AEFl24t2);
+
+    const AEFl24 = divide(areaOfStrand*E*square(WNM)*square(span), 24);
+    console.log("AEFl24", AEFl24);
+
+    const alphaAE = multiply(alpha,areaOfStrand,E,subtract(theta2,theta1));
+    console.log("alphaAE", alphaAE);
+
+    //After solving equation
+
+    const T2 = 63620  //N
+
+    const sagErrect = divide(multiply(WNM, square(span)), multiply(8, T2));
+    console.log("SagErrect", sagErrect);
+
+    const sagBad = divide(multiply(Ft1, square(span)), multiply(8, T1));
+    console.log("SagBad", sagBad);
+
+    const sagVerticalBad = multiply(sagBad, atan(divide(Fw,WNM)))  //radian
+    console.log("sagVerticalBad", sagVerticalBad);
+
     return (
         <div className="geometry">
 
@@ -299,7 +349,9 @@ function FirstGeometry() {
                 <h4>Voltage Regulation: {voltageRegulation}</h4>
                 <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
                 <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
-                {/**/}
+                <h4>Sag Under Errection Condition: {sagErrect} m</h4>
+                <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
+                <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
             </div>  
         </div>
     )
