@@ -1,20 +1,22 @@
 import './App.css';
 import TransmissonLine from './components/TransmissonLine/TransmissonLine';
-// import {BrowserRouter as Router,  Routes, Route } from 'react-router-dom'
+import {BrowserRouter as Router,  Routes, Route } from 'react-router-dom'
+import FirstGeometry from './components/FirstGeometry/FirstGeometry';
+import MainTransmission from './components/MainTransmission/MainTransmission';
 
 function App() {
   return (
-    <div className="App">
-        <h1 className="main__heading">Transmission line app</h1>
-        <div className="transmisson">
-          <TransmissonLine title="Geometry 1"/>
-          <TransmissonLine title="Geometry 2"/>
-          <TransmissonLine title="Geometry 3"/>
-          <TransmissonLine title="Geometry 4"/>
-          <TransmissonLine title="Geometry 5"/>
-          <TransmissonLine title="Geometry 6"/>
-        </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<MainTransmission/>}></Route>
+        <Route path='firstgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/secondgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/thirdgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/fourthgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/fifthgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/sixthgeometry' element={<FirstGeometry/>}></Route>
+      </Routes>
+    </Router>
   );
 }
 

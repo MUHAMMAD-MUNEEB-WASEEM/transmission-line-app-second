@@ -1,0 +1,11 @@
+.transmisson{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .main__heading{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4%;
+  }
