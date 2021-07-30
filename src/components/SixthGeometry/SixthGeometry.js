@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
-import './FifthGeometry.css';
+import './SixthGeometry.css';
 import math, {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
   } from 'mathjs'
 import Features from '../SalientFeature/Features';
 
-function FifthGeometry() {
+function SixthGeometry() {
 
 
 //useState
 
     //by default
     const [heightOfTower, setHeightOfTower] = useState(49)
-    const [lineVoltage, setLineVoltage] = useState(230*1000)
+    const [lineVoltage, setLineVoltage] = useState(115*1000)
     const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
     const [typeOfConductors, setTypeOfConductors] = useState('Bundled');
-    const [conductorMaterial, setConductorMaterial] = useState('TACSR');
+    const [conductorMaterial, setConductorMaterial] = useState('ACSR BITTERN');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
     const [voltageLevel, setVoltageLevel] = useState('AC')
     const [sizeOfEarthWires, setsizeOfEarthWires] = useState('2 wires (AC 7/4.3, OPGD 8/3.7)');
@@ -27,26 +27,26 @@ function FifthGeometry() {
     const [earthWire, setEarthWire] = useState('Present')
     // const [bundledConductors, setBundledConductors] = useState('Triangular')
     const [conductorSupportLevel, setConductorSupportLevel] = useState('Equal')
-    const [noOfDisc, setNoOfDisc] = useState('17')
+    const [noOfDisc, setNoOfDisc] = useState('9')
     const [typeOfDamper, setTypeOfDamper] = useState('Stock Bridge Damper')
     const [loadingFactor, setLoadingFactor] = useState('Yes')
     const [guardRing, setGuardRing] = useState('Yes');
     const [temperature, setTemperature] = useState(28);
     const [windPressure, setWindPressure] = useState(48.23); //should be taken from user
     const [windVelocity, setWindVelocity] = useState(32);
-    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('54/7/3.8 mm');
+    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('45/4.2 7/2.8 mm');
     const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [conductorWeight, setConductorWeight] = useState(21.5404);
-    const [conductorLength, setConductorLength] = useState(160);
-    const [Pr, setPr] = useState(120*1000000);
-    const [span, setSpan] = useState(500);
+    const [conductorWeight, setConductorWeight] = useState(20.188);
+    const [conductorLength, setConductorLength] = useState(110);
+    const [Pr, setPr] = useState(50*1000000);
+    const [span, setSpan] = useState(450);
     const [interPhaseDistance1, setInterPhaseDistance1] = useState(7)
     const [interPhaseDistance2, setInterPhaseDistance2] = useState(7)
     const [outerPhaseDistance, setOuterPhaseDistance] = useState(14);
-    const [overAllDiameter, setOverAllDiameter] = useState(34.20*0.001);
-    const [eachDiameter, setEachDiameter] = useState(3.8); //mm
-    const [weight, setWeight] = useState(2222.9);
-    const [ultimateStrength, setUltimateStrength] = useState(175.7*1000)
+    const [overAllDiameter, setOverAllDiameter] = useState(33.60*0.001);
+    const [eachDiameter, setEachDiameter] = useState(3.5); //mm //after avg
+    const [weight, setWeight] = useState(2136);
+    const [ultimateStrength, setUltimateStrength] = useState(151.4*1000)
 
     //input
     const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
@@ -114,7 +114,7 @@ function FifthGeometry() {
     const row = 0.00000000001729 //km
     // const R =  (row*conductorLength)/(5.97*0.000000001)
 
-    const R = 0.0461;
+    const R = 0.0448;
 
     const R85 = multiply(divide(add(228, 75), add(228, 20)), R) * conductorLength;
     console.log("R85", R85);
@@ -200,7 +200,7 @@ function FifthGeometry() {
 
     //Surge Impedence Loading
 
-    const ZC = 200
+    const ZC = 300
 
     const SIL = format(divide(square(lineVoltage),ZC),{notation: 'exponential'})
 
@@ -239,7 +239,7 @@ function FifthGeometry() {
     const RatioForF = divide(Vr, Vd);
     console.log("RatioForF", RatioForF);
 
-    const [F, setF] = useState(0.018)
+    const [F, setF] = useState(0.012)
 
         // if (RatioForF>=1.4) {
         //     setF(0.3);
@@ -255,9 +255,9 @@ function FifthGeometry() {
     const areaOfStrand = multiply(3.142, 0.25, square(eachDiameter/1000)) //sq-m
     console.log("Area of Strand", areaOfStrand);
 
-    const E = 71800000000 //  N/sq-m
+    const E = 71100000000 //  N/sq-m
  
-    const alpha = 0.0000206 // per deg c
+    const alpha = 0.00002085 // per deg c
 
     const WNM= weight*0.001*9.8  // N/m    Ft2
     console.log("weight N/m", WNM);
@@ -433,4 +433,4 @@ function FifthGeometry() {
   )
 }
 
-export default FifthGeometry
+export default SixthGeometry
