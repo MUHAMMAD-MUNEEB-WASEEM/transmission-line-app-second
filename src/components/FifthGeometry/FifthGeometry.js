@@ -1,24 +1,24 @@
 import React, {useState} from 'react';
-import './ThirdGeometry.css';
+import './FifthGeometry.css';
 import math, {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
   } from 'mathjs'
 import Features from '../SalientFeature/Features';
 
-function ThirdGeometry() {
+function FifthGeometry() {
 
 
 //useState
 
     //by default
-    const [heightOfTower, setHeightOfTower] = useState(31.53)
-    const [lineVoltage, setLineVoltage] = useState(132*1000)
+    const [heightOfTower, setHeightOfTower] = useState(49)
+    const [lineVoltage, setLineVoltage] = useState(230*1000)
     const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
     const [typeOfConductors, setTypeOfConductors] = useState('Bundled');
-    const [conductorMaterial, setConductorMaterial] = useState('ACSR');
+    const [conductorMaterial, setConductorMaterial] = useState('TACSR');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
     const [voltageLevel, setVoltageLevel] = useState('AC')
-    const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
+    const [sizeOfEarthWires, setsizeOfEarthWires] = useState('2 wires (AC 7/4.3, OPGD 8/3.7)');
     const [groundClearance, setGroundClearance] = useState(11);
     const [archingHorn, setArchingHorn] = useState('Present');
     const [lineConfiguration, setLineConfiguration] = useState('Vertical Parallel')
@@ -27,26 +27,26 @@ function ThirdGeometry() {
     const [earthWire, setEarthWire] = useState('Present')
     // const [bundledConductors, setBundledConductors] = useState('Triangular')
     const [conductorSupportLevel, setConductorSupportLevel] = useState('Equal')
-    const [noOfDisc, setNoOfDisc] = useState('12')
+    const [noOfDisc, setNoOfDisc] = useState('21')
     const [typeOfDamper, setTypeOfDamper] = useState('Stock Bridge Damper')
     const [loadingFactor, setLoadingFactor] = useState('Yes')
     const [guardRing, setGuardRing] = useState('Yes');
-    const [temperature, setTemperature] = useState(32);
-    const [windPressure, setWindPressure] = useState(48.23);
-    const [windVelocity, setWindVelocity] = useState(39);
-    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('30/7/3 mm');
+    const [temperature, setTemperature] = useState(28);
+    const [windPressure, setWindPressure] = useState(48.23); //should be taken from user
+    const [windVelocity, setWindVelocity] = useState(32);
+    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('54/7/3.8 mm');
     const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [conductorWeight, setConductorWeight] = useState(4.19);
-    const [conductorLength, setConductorLength] = useState(80);
-    const [Pr, setPr] = useState(50*1000000);
-    const [span, setSpan] = useState(320);
-    const [interPhaseDistance1, setInterPhaseDistance1] = useState(3)
-    const [interPhaseDistance2, setInterPhaseDistance2] = useState(3)
-    const [outerPhaseDistance, setOuterPhaseDistance] = useState(6);
-    const [overAllDiameter, setOverAllDiameter] = useState(21*0.001);
-    const [eachDiameter, setEachDiameter] = useState(3); //mm
-    const [weight, setWeight] = useState(974);
-    const [ultimateStrength, setUltimateStrength] = useState(92.30*1000)
+    const [conductorWeight, setConductorWeight] = useState(21.5404);
+    const [conductorLength, setConductorLength] = useState(160);
+    const [Pr, setPr] = useState(120*1000000);
+    const [span, setSpan] = useState(350);
+    const [interPhaseDistance1, setInterPhaseDistance1] = useState(7)
+    const [interPhaseDistance2, setInterPhaseDistance2] = useState(7)
+    const [outerPhaseDistance, setOuterPhaseDistance] = useState(14);
+    const [overAllDiameter, setOverAllDiameter] = useState(34.20*0.001);
+    const [eachDiameter, setEachDiameter] = useState(3.8); //mm
+    const [weight, setWeight] = useState(2222.9);
+    const [ultimateStrength, setUltimateStrength] = useState(175.7*1000)
 
     //input
     const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
@@ -114,7 +114,7 @@ function ThirdGeometry() {
     const row = 0.00000000001729 //km
     // const R =  (row*conductorLength)/(5.97*0.000000001)
 
-    const R = 0.1363;
+    const R = 0.0461;
 
     const R85 = multiply(divide(add(228, 75), add(228, 20)), R) * conductorLength;
     console.log("R85", R85);
@@ -200,7 +200,7 @@ function ThirdGeometry() {
 
     //Surge Impedence Loading
 
-    const ZC = 150
+    const ZC = 200
 
     const SIL = format(divide(square(lineVoltage),ZC),{notation: 'exponential'})
 
@@ -255,9 +255,9 @@ function ThirdGeometry() {
     const areaOfStrand = multiply(3.142, 0.25, square(eachDiameter/1000)) //sq-m
     console.log("Area of Strand", areaOfStrand);
 
-    const E = 815800 //  N/sq-m
+    const E = 71800000000 //  N/sq-m
  
-    const alpha = 0.0000178 // per deg c
+    const alpha = 0.0000206 // per deg c
 
     const WNM= weight*0.001*9.8  // N/m    Ft2
     console.log("weight N/m", WNM);
@@ -365,70 +365,72 @@ function ThirdGeometry() {
     const sagVerticalBad = format(multiply(sagBad, atan(divide(Fw,WNM))),5)  //radian
     console.log("sagVerticalBad", sagVerticalBad);
 
+
+    console.log(windPressure)
     
     return (
-        <div className="geometry">
-            <h1 className="parameters__heading">Transmission Line Parameters</h1>
-            <div className="sides">
-              <div className="geometry__content">
-                {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
-                
-                  <h4>Line Voltage: {lineVoltage} V </h4>
-                  <h4>Type of Circuits: {typeOfCircuits}</h4>
-                  <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4>
-                  <h4>Conductor Length: {conductorLength} km</h4>
-                  <h4>Conductor Weight: {conductorWeight} N/m</h4>
-                  <h4>Type Of Conductors: {typeOfConductors}</h4>
-                  <h4>Height of Tower: {heightOfTower}</h4>
-                  <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
-                  <h4>Voltage Level: {voltageLevel}</h4>
-                  <h4>Arcing Horn: {archingHorn}</h4>
-                  <h4>Line Configuration: {lineConfiguration}</h4>
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
-                  <h4>Conductor Material: {conductorMaterial}</h4>
-                  <h4>Earth Wire: {earthWire}</h4>
-                  <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
-                  {/* <h4>Bundled Conductors: {bundledConductors}</h4> */}
-                  <h4>Types Of Insulators: {typesOfInsulators}</h4>
-                  <h4>No of insulator dics in one string: {noOfDisc}</h4>
-                  <h4>Number of Insulators: {numberOfInsulators}</h4>
-                  {/* <h4>Ground Clearance: {groundClearance} m</h4> */}
-                  <h4>Loading Factors: {loadingFactor}</h4>
-                  <h4>Type of Dampers: {typeOfDamper}</h4>
-                  <h4>Tower Type: Suspension Tower</h4>
-                  <h4>Vibrations: Resonant</h4>
-                  <h4>Guard Ring/Corona Ring: {guardRing}</h4>
-                  <h4>Wind Pressure: {windPressure} kg/sqm</h4>
-                  <h4>Wind Velocity: {windVelocity} m/s</h4>
-                  <h4>Temperature: {temperature}</h4>
-                  <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
-                  <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
-                  <h4>Span: {span}m</h4>
-                  <br/>
-                  <h3>**** Calculated Results ****</h3>
-                  <br/>
-                  <h4>Inductance: {L}</h4>
-                  <h4>Capacitance: {Cap} F/kM</h4>
-                  <h4>Susceptance: j{Y.im} siemens/phase</h4>
-                  <h4>Impedence: {ZReFormat} + j{ZImFormat}</h4>
-                  <h4>Efficiency: {efficiency}%</h4>
-                  <h4>SIL: {SIL} W</h4>
-                  <h4>Line Efficiency: {lineEfficiency}</h4>
-                  <h4>Power Factor: {Pfs}</h4>
-                  <h4>Voltage Regulation: {voltageRegulation}</h4>
-                  <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
-                  <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
-                  <h4>Sag Under Errection Condition: {sagErrect} m</h4>
-                  <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
-                  <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
-                </div>
-                <div className="geometry__recommendation">
-                  <Features title="Salient Features"/>
-                  <Features title="Recommendations"/>
-               </div>
-            </div>  
-        </div>
-    )
+      <div className="geometry">
+          <h1 className="parameters__heading">Transmission Line Parameters</h1>
+          <div className="sides">
+            <div className="geometry__content">
+              {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
+              
+                <h4>Line Voltage: {lineVoltage} V </h4>
+                <h4>Type of Circuits: {typeOfCircuits}</h4>
+                <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4>
+                <h4>Conductor Length: {conductorLength} km</h4>
+                <h4>Conductor Weight: {conductorWeight} N/m</h4>
+                <h4>Type Of Conductors: {typeOfConductors}</h4>
+                <h4>Height of Tower: {heightOfTower}</h4>
+                <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
+                <h4>Voltage Level: {voltageLevel}</h4>
+                <h4>Arcing Horn: {archingHorn}</h4>
+                <h4>Line Configuration: {lineConfiguration}</h4>
+                {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
+                <h4>Conductor Material: {conductorMaterial}</h4>
+                <h4>Earth Wire: {earthWire}</h4>
+                <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
+                {/* <h4>Bundled Conductors: {bundledConductors}</h4> */}
+                <h4>Types Of Insulators: {typesOfInsulators}</h4>
+                <h4>No of insulator dics in one string: {noOfDisc}</h4>
+                <h4>Number of Insulators: {numberOfInsulators}</h4>
+                {/* <h4>Ground Clearance: {groundClearance} m</h4> */}
+                <h4>Loading Factors: {loadingFactor}</h4>
+                <h4>Type of Dampers: {typeOfDamper}</h4>
+                <h4>Tower Type: Suspension Tower</h4>
+                <h4>Vibrations: Resonant</h4>
+                <h4>Guard Ring/Corona Ring: {guardRing}</h4>
+                <h4>Wind Pressure:  <input value={windPressure} onChange={e => setWindPressure(e.target.value)} placeholder="Enter Wind Pressure" type="number"/> kg/sqm <br/>(47-50 kg/sqm)</h4>
+                <h4>Wind Velocity: {windVelocity}</h4>
+                <h4>Temperature: {temperature}</h4>
+                <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
+                <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
+                <h4>Span: {span}m</h4>
+                <br/>
+                <h3>**** Calculated Results ****</h3>
+                <br/>
+                <h4>Inductance: {L}</h4>
+                <h4>Capacitance: {Cap} F/kM</h4>
+                <h4>Susceptance: j{Y.im} siemens/phase</h4>
+                <h4>Impedence: {ZReFormat} + j{ZImFormat}</h4>
+                <h4>Efficiency: {efficiency}%</h4>
+                <h4>SIL: {SIL} W</h4>
+                <h4>Line Efficiency: {lineEfficiency}</h4>
+                <h4>Power Factor: {Pfs}</h4>
+                <h4>Voltage Regulation: {voltageRegulation}</h4>
+                <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
+                <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
+                <h4>Sag Under Errection Condition: {sagErrect} m</h4>
+                <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
+                <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
+              </div>
+              <div className="geometry__recommendation">
+                <Features title="Salient Features"/>
+                <Features title="Recommendations"/>
+             </div>
+          </div>  
+      </div>
+  )
 }
 
-export default ThirdGeometry
+export default FifthGeometry

@@ -45,7 +45,7 @@ function FirstGeometry() {
     const [outerPhaseDistance, setOuterPhaseDistance] = useState(16);
     const [overAllDiameter, setOverAllDiameter] = useState(31.77*0.001);
     const [eachDiameter, setEachDiameter] = useState(3.53); //mm
-    const [weight, setWeight] = useState(1999);
+    const [weight, setWeight] = useState(2222.9);
     const [ultimateStrength, setUltimateStrength] = useState(161*1000)
 
     //input

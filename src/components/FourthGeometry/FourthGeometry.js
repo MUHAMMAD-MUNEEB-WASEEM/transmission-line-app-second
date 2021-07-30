@@ -5,7 +5,7 @@ import math, {
   } from 'mathjs'
 import Features from '../SalientFeature/Features';
 
-function ThirdGeometry() {
+function FourthGeometry() {
 
 
 //useState
@@ -433,4 +433,4 @@ function ThirdGeometry() {
   )
 }
 
-export default ThirdGeometry
+export default FourthGeometry
