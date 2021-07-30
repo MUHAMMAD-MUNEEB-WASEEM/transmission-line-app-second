@@ -32,14 +32,12 @@ function MainTransmission() {
             <div className="transmisson">
 
                 {/*first geometry*/}
-                <TransmissonLine title="400KV Geometry" image={image1}/>
-               
-               
-                <TransmissonLine title="Geometry 2" image={image2}/>
-                <TransmissonLine title="Geometry 3" image={image3}/>
-                <TransmissonLine title="Geometry 4" image={image4}/>
-                <TransmissonLine title="Geometry 5" image={image5}/>
-                <TransmissonLine title="Geometry 6" image={image6}/>
+                <TransmissonLine title="400KV Geometry" image={image1} path="firstgeometry"/>  
+                <TransmissonLine title="Geometry 2" image={image2} path="secondgeometry"/>
+                <TransmissonLine title="Geometry 3" image={image3} path="thirdgeometry"/>
+                <TransmissonLine title="Geometry 4" image={image4} path="fourthgeometry"/>
+                <TransmissonLine title="Geometry 5" image={image5} path="fifthgeometry"/>
+                <TransmissonLine title="Geometry 6" image={image6} path="sixthgeometry"/>
             </div>
         </div>
     )

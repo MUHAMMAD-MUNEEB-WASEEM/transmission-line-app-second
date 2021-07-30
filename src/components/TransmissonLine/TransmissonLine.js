@@ -4,12 +4,12 @@ import './TransmissionLine.css'
 import { Link } from 'react-router-dom';
 
 
-function TransmissonLine({title, image}) {
+function TransmissonLine({title, image, path}) {
     return (
         <div className="transmissonline"> 
             <h2 className="transmissonline__heading">{title}</h2>
             <img className="transmissionline__image" src={image}/>
-            <Link to="firstgeometry">
+            <Link to={path}>
                 <button className="transmissonline__button">Open Geometry</button>
             </Link>
         </div>

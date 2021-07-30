@@ -4,7 +4,7 @@ import math, {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format
   } from 'mathjs'
 
-function FirstGeometry() {
+function ThirdGeometry() {
 
 
 //useState
@@ -421,4 +421,4 @@ function FirstGeometry() {
     )
 }
 
-export default FirstGeometry
+export default ThirdGeometry

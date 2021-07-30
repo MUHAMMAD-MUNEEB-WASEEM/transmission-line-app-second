@@ -1,50 +1,51 @@
 import React, {useState} from 'react';
-import './FirstGeometry.css';
+import './SecondGeometry.css';
 import math, {
-    atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format
+    atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
   } from 'mathjs'
 
-function FirstGeometry() {
+function SecondGeometry() {
 
 
 //useState
 
     //by default
-    const [heightOfTower, setHeightOfTower] = useState(50)
-    const [lineVoltage, setLineVoltage] = useState(400*1000)
+    const [heightOfTower, setHeightOfTower] = useState(35.78)
+    const [lineVoltage, setLineVoltage] = useState(220*1000)
     const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
-    const [typeOfConductors, setTypeOfConductors] = useState('Bundled');
+    const [typeOfConductors, setTypeOfConductors] = useState('Non-Bundled');
     const [conductorMaterial, setConductorMaterial] = useState('ACSR');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
     const [voltageLevel, setVoltageLevel] = useState('AC')
-    const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.66');
-    const [groundClearance, setGroundClearance] = useState(15);
+    const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
+    const [groundClearance, setGroundClearance] = useState(11);
     const [archingHorn, setArchingHorn] = useState('Present');
     const [lineConfiguration, setLineConfiguration] = useState('Vertical Parallel')
-    const [conductorCrossSectionalArea, setConductorCrossSectionalArea] = useState(5.97)
-    const [typeOfCircuits, setTypeOfCircuits] = useState('Double');
+    const [conductorCrossSectionalArea, setConductorCrossSectionalArea] = useState(4.824)
+    const [typeOfCircuits, setTypeOfCircuits] = useState('Single');
     const [earthWire, setEarthWire] = useState('Present')
     // const [bundledConductors, setBundledConductors] = useState('Triangular')
     const [conductorSupportLevel, setConductorSupportLevel] = useState('Equal')
-    const [noOfDisc, setNoOfDisc] = useState('37')
+    const [noOfDisc, setNoOfDisc] = useState('20')
     const [typeOfDamper, setTypeOfDamper] = useState('Stock Bridge Damper')
-    const [loadingFactor, setLoadingFactor] = useState('No')
+    const [loadingFactor, setLoadingFactor] = useState('Yes')
     const [guardRing, setGuardRing] = useState('Yes');
     const [temperature, setTemperature] = useState(32);
-    const [windPressure, setWindPressure] = useState(68.10);
+    const [windPressure, setWindPressure] = useState(48.23);
     const [windVelocity, setWindVelocity] = useState(39);
-    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('54/7/3.53 mm');
-    const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [conductorWeight, setConductorWeight] = useState(19.6);
-    const [conductorLength, setConductorLength] = useState(200);
-    const [Pr, setPr] = useState(200*1000000);
-    const [span, setSpan] = useState(400);
-    const [interPhaseDistance, setInterPhaseDistance] = useState(8)
-    const [outerPhaseDistance, setOuterPhaseDistance] = useState(16);
-    const [overAllDiameter, setOverAllDiameter] = useState(31.77*0.001);
-    const [eachDiameter, setEachDiameter] = useState(3.53); //mm
-    const [weight, setWeight] = useState(1999);
-    const [ultimateStrength, setUltimateStrength] = useState(161*1000)
+    const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('54/7/3.18 mm');
+    const [numberOfInsulators, setNumberOfInsulators] = useState(3);
+    const [conductorWeight, setConductorWeight] = useState(15.92);
+    const [conductorLength, setConductorLength] = useState(160);
+    const [Pr, setPr] = useState(100*1000000);
+    const [span, setSpan] = useState(300);
+    const [interPhaseDistance1, setInterPhaseDistance1] = useState(5.28)
+    const [interPhaseDistance2, setInterPhaseDistance2] = useState(5.34)
+    const [outerPhaseDistance, setOuterPhaseDistance] = useState(10.62);
+    const [overAllDiameter, setOverAllDiameter] = useState(28.62*0.001);
+    const [eachDiameter, setEachDiameter] = useState(3.18); //mm
+    const [weight, setWeight] = useState(1621);
+    const [ultimateStrength, setUltimateStrength] = useState(131.9*1000)
 
     //input
     const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
@@ -66,8 +67,6 @@ function FirstGeometry() {
     // const [heightOfTower, setHeightOfTower] = useState(10)
     // const [heightOfTower, setHeightOfTower] = useState(10)
 
-    const result = Math.sqrt(4);
-
     // const sendMessage = (e) => {
 
     //     e.preventDefault(); //avoiding from refresh
@@ -77,7 +76,7 @@ function FirstGeometry() {
     console.log(lineVoltage)
 
     //L and C
-    const forDeq = multiply(8, 8, 16)
+    const forDeq = multiply(interPhaseDistance1, interPhaseDistance2, outerPhaseDistance)
     const Deq = pow(forDeq, 1/3)
 
     console.log("Deq", Deq)
@@ -114,7 +113,7 @@ function FirstGeometry() {
     const row = 0.00000000001729 //km
     // const R =  (row*conductorLength)/(5.97*0.000000001)
 
-    const R = 0.0547
+    const R = 0.0674
 
     const R85 = multiply(divide(add(228, 75), add(228, 20)), R) * conductorLength;
     console.log("R85", R85);
@@ -151,7 +150,13 @@ function FirstGeometry() {
     const IrAngle = multiply(acos(Pfr),divide(180,3.142));
     console.log("Ir Angle", IrAngle)
 
-    const RectIr = subtract(288.037, multiply(215.95, sqrt(-1)))
+    const Irx = multiply(Ir, cos(unit(IrAngle, 'deg')));
+    console.log("Irx", Irx);
+
+    const Iry = multiply(Ir, sin(unit(IrAngle, 'deg')));
+    console.log("Iry", Iry);
+
+    const RectIr = subtract(Irx, multiply(Iry, sqrt(-1)))
     console.log("RectIr", RectIr)
 
     const Vr = multiply(lineVoltage, 0.57735);  //full load
@@ -233,7 +238,7 @@ function FirstGeometry() {
     const RatioForF = divide(Vr, Vd);
     console.log("RatioForF", RatioForF);
 
-    const [F, setF] = useState(0.3)
+    const [F, setF] = useState(0.05)
 
         // if (RatioForF>=1.4) {
         //     setF(0.3);
@@ -249,9 +254,9 @@ function FirstGeometry() {
     const areaOfStrand = multiply(3.142, 0.25, square(eachDiameter/1000)) //sq-m
     console.log("Area of Strand", areaOfStrand);
 
-    const E = 67200000000 //  N/sq-m
+    const E = 84100000000 //  N/sq-m
  
-    const alpha = 0.0000193 // per deg c
+    const alpha = 0.0000199 // per deg c
 
     const WNM= weight*0.001*9.8  // N/m    Ft2
     console.log("weight N/m", WNM);
@@ -374,7 +379,7 @@ function FirstGeometry() {
                 <h4>Conductor Length: {conductorLength} km</h4>
                 <h4>Conductor Weight: {conductorWeight} N/m</h4>
                 <h4>Type Of Conductors: {typeOfConductors}</h4>
-                <h4>Height of Tower: {heightOfTower} m</h4>
+                <h4>Height of Tower: {heightOfTower}</h4>
                 <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
                 <h4>Voltage Level: {voltageLevel}</h4>
                 <h4>Arcing Horn: {archingHorn}</h4>
@@ -397,7 +402,7 @@ function FirstGeometry() {
                 <h4>Wind Velocity: {windVelocity} m/s</h4>
                 <h4>Temperature: {temperature}</h4>
                 <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
-                <h4>Spacing between phase conductors: {interPhaseDistance} m</h4>
+                <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
                 <h4>Span: {span}m</h4>
                 <br/>
                 <h3>**** Calculated Results ****</h3>
@@ -421,4 +426,4 @@ function FirstGeometry() {
     )
 }
 
-export default FirstGeometry
+export default SecondGeometry
