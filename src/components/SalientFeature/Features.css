@@ -1,0 +1,32 @@
+.features{
+    background: black;
+    width: 500px;
+    height: 220px;
+    text-align: left;
+    margin-right: 60px;
+    border-radius: 50px;
+    border: 2px solid #fad017;
+    margin-bottom: 3%;
+    margin-left: 7%;
+}
+
+.features__heading{
+    padding: 30px 0px 0px 28px;
+}
+
+.features__heading > h2{
+    color: #fad017;
+    text-align: left;
+    margin-bottom: 7%;
+}
+
+.features__point{
+    text-align: left;
+    margin-left: 25px;
+
+}
+.features__point > p{
+    color: white;
+    margin-bottom: 7px;
+    font-size: 20px;
+}

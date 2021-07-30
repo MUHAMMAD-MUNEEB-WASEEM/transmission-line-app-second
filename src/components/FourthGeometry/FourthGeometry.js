@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import './ThirdGeometry.css';
+import './FourthGeometry.css';
 import math, {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
   } from 'mathjs'
+import Features from '../SalientFeature/Features';
 
 function ThirdGeometry() {
 
@@ -10,13 +11,13 @@ function ThirdGeometry() {
 //useState
 
     //by default
-    const [heightOfTower, setHeightOfTower] = useState(31.53)
-    const [lineVoltage, setLineVoltage] = useState(132*1000)
+    const [heightOfTower, setHeightOfTower] = useState(22.68)
+    const [lineVoltage, setLineVoltage] = useState(110*1000)
     const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
     const [typeOfConductors, setTypeOfConductors] = useState('Non-Bundled');
-    const [conductorMaterial, setConductorMaterial] = useState('ACSR');
+    const [conductorMaterial, setConductorMaterial] = useState('ACSR Panther');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
-    const [voltageLevel, setVoltageLevel] = useState('AC')
+    const [voltageLevel, setVoltageLevel] = useState('DC')
     const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
     const [groundClearance, setGroundClearance] = useState(11);
     const [archingHorn, setArchingHorn] = useState('Present');
@@ -26,19 +27,19 @@ function ThirdGeometry() {
     const [earthWire, setEarthWire] = useState('Present')
     // const [bundledConductors, setBundledConductors] = useState('Triangular')
     const [conductorSupportLevel, setConductorSupportLevel] = useState('Equal')
-    const [noOfDisc, setNoOfDisc] = useState('12')
+    const [noOfDisc, setNoOfDisc] = useState('8')
     const [typeOfDamper, setTypeOfDamper] = useState('Stock Bridge Damper')
     const [loadingFactor, setLoadingFactor] = useState('Yes')
     const [guardRing, setGuardRing] = useState('Yes');
     const [temperature, setTemperature] = useState(32);
-    const [windPressure, setWindPressure] = useState(48.23);
+    const [windPressure, setWindPressure] = useState(48.23); //should be taken from user
     const [windVelocity, setWindVelocity] = useState(39);
     const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('30/7/3 mm');
     const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [conductorWeight, setConductorWeight] = useState(4.19);
-    const [conductorLength, setConductorLength] = useState(80);
-    const [Pr, setPr] = useState(50*1000000);
-    const [span, setSpan] = useState(320);
+    const [conductorWeight, setConductorWeight] = useState(9.56);
+    const [conductorLength, setConductorLength] = useState(100);
+    const [Pr, setPr] = useState(40*1000000);
+    const [span, setSpan] = useState(200);
     const [interPhaseDistance1, setInterPhaseDistance1] = useState(3)
     const [interPhaseDistance2, setInterPhaseDistance2] = useState(3)
     const [outerPhaseDistance, setOuterPhaseDistance] = useState(6);
@@ -199,7 +200,7 @@ function ThirdGeometry() {
 
     //Surge Impedence Loading
 
-    const ZC = 150
+    const ZC = 300
 
     const SIL = format(divide(square(lineVoltage),ZC),{notation: 'exponential'})
 
@@ -238,7 +239,7 @@ function ThirdGeometry() {
     const RatioForF = divide(Vr, Vd);
     console.log("RatioForF", RatioForF);
 
-    const [F, setF] = useState(0.018)
+    const [F, setF] = useState(0.012)
 
         // if (RatioForF>=1.4) {
         //     setF(0.3);
@@ -364,15 +365,16 @@ function ThirdGeometry() {
     const sagVerticalBad = format(multiply(sagBad, atan(divide(Fw,WNM))),5)  //radian
     console.log("sagVerticalBad", sagVerticalBad);
 
+
+    console.log(windPressure)
     
     return (
-        <div className="geometry">
-
+      <div className="geometry">
+          <h1 className="parameters__heading">Transmission Line Parameters</h1>
+          <div className="sides">
             <div className="geometry__content">
-                <h1>Transmission Line Parameters</h1>
-
-                {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
-                
+              {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
+              
                 <h4>Line Voltage: {lineVoltage} V </h4>
                 <h4>Type of Circuits: {typeOfCircuits}</h4>
                 <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4>
@@ -384,7 +386,7 @@ function ThirdGeometry() {
                 <h4>Voltage Level: {voltageLevel}</h4>
                 <h4>Arcing Horn: {archingHorn}</h4>
                 <h4>Line Configuration: {lineConfiguration}</h4>
-                <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                 <h4>Conductor Material: {conductorMaterial}</h4>
                 <h4>Earth Wire: {earthWire}</h4>
                 <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -398,8 +400,8 @@ function ThirdGeometry() {
                 <h4>Tower Type: Suspension Tower</h4>
                 <h4>Vibrations: Resonant</h4>
                 <h4>Guard Ring/Corona Ring: {guardRing}</h4>
-                <h4>Wind Pressure: {windPressure} kg/sqm</h4>
-                <h4>Wind Velocity: {windVelocity} m/s</h4>
+                <h4>Wind Pressure:  <input value={windPressure} onChange={e => setWindPressure(e.target.value)} placeholder="Enter Wind Pressure" type="number"/> kg/sqm <br/>(47-50 kg/sqm)</h4>
+                <h4>Wind Velocity: <input value={windVelocity} onChange={e => setWindVelocity(e.target.value)} placeholder="Enter Wind Velocity" type="number"/> m/s <br/>(38-40 m/s)</h4>
                 <h4>Temperature: {temperature}</h4>
                 <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
                 <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
@@ -421,9 +423,14 @@ function ThirdGeometry() {
                 <h4>Sag Under Errection Condition: {sagErrect} m</h4>
                 <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
                 <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
-            </div>  
-        </div>
-    )
+              </div>
+              <div className="geometry__recommendation">
+                <Features title="Salient Features"/>
+                <Features title="Recommendations"/>
+             </div>
+          </div>  
+      </div>
+  )
 }
 
 export default ThirdGeometry
