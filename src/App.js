@@ -5,6 +5,7 @@ import FirstGeometry from './components/FirstGeometry/FirstGeometry';
 import MainTransmission from './components/MainTransmission/MainTransmission';
 import Recommendation from './components/Recommendation/Recommendation';
 import SecondGeometry from './components/SecondGeometry/SecondGeometry';
+import ThirdGeometry from './components/ThirdGeometry/ThirdGeometry';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path='/' element={<MainTransmission/>}></Route>
         <Route path='firstgeometry' element={<FirstGeometry/>}></Route>
         <Route path='/secondgeometry' element={<SecondGeometry/>}></Route>
-        <Route path='/thirdgeometry' element={<FirstGeometry/>}></Route>
+        <Route path='/thirdgeometry' element={<ThirdGeometry/>}></Route>
         <Route path='/fourthgeometry' element={<FirstGeometry/>}></Route>
         <Route path='/fifthgeometry' element={<FirstGeometry/>}></Route>
         <Route path='/sixthgeometry' element={<FirstGeometry/>}></Route>
