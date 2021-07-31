@@ -436,7 +436,7 @@ function ThirdGeometry() {
                 </div>
                 <div className="geometry__recommendation">
                   <Features title="Salient Features"/>
-                  <Features title="Recommendations"/>
+                  <Features title="Recommendations" point1="Issue: Less Power Factor" point2="1.  The Transmission line was originally designed at lower power factor. So it is suggested to increase it by installing suitable capacitor banks"/>
                </div>
             </div>  
         </div>

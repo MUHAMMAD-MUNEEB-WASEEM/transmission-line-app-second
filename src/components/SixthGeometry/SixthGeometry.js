@@ -426,7 +426,7 @@ function SixthGeometry() {
               </div>
               <div className="geometry__recommendation">
                 <Features title="Salient Features"/>
-                <Features title="Recommendations"/>
+                <Features title="Recommendations" point1="Issue: Less Value of SIL" point2="1.  Increase an area of Earth Wire to have less resistance" point3="2. Increase number of circuits of Earth wire to increase SIL"/>
              </div>
           </div>  
       </div>

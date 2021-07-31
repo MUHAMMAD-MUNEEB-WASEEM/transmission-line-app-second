@@ -1,7 +1,7 @@
 import React from 'react'
 import './Features.css';
 
-function Features({title}) {
+function Features({title, point1, point2, point3, point4}) {
     return (
         <div className="features">
             
@@ -9,9 +9,10 @@ function Features({title}) {
                 <h2 >{title}</h2>
             </div>
            <div className="features__point"> 
-                <p>1. It is very much efficient</p>
-                <p>2. Good Voltage Regulation</p>
-                <p>3. High SIL</p>
+                <p>{point1}</p>
+                <p>{point2}</p>
+                <p>{point3}</p>
+                <p>{point4}</p>
             </div>
         </div>
     )

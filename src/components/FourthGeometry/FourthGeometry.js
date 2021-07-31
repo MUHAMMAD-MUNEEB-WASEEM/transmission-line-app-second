@@ -445,7 +445,7 @@ function FourthGeometry() {
               </div>
               <div className="geometry__recommendation">
                 <Features title="Salient Features"/>
-                <Features title="Recommendations"/>
+                <Features title="Recommendations" point1="Issue: Lower Efficiency" point2="1.  Change conductor type to have less resistance to get maximum power output" point3="2. Use of Shunt Capacitors to reduce load on generation side which ulitmately increase efficiency"/>
              </div>
           </div>  
       </div>

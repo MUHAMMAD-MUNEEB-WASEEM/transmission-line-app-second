@@ -421,7 +421,7 @@ function FirstGeometry() {
               </div>  
               <div className="geometry__recommendation">
                   <Features title="Salient Features"/>
-                  <Features title="Recommendations"/>
+                  <Features title="Recommendations" point1="Issue: High Corona Loss" point2="1. Increasing the distance between conductors" point3="2. Use of bundled conductors"/>
                </div>
           </div>
         </div>

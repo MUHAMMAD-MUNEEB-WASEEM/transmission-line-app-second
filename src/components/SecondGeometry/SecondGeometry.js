@@ -425,7 +425,7 @@ function SecondGeometry() {
                 </div>
                 <div className="geometry__recommendation">
                   <Features title="Salient Features"/>
-                  <Features title="Recommendations"/>
+                  <Features title="Recommendations" point1="Issue: Voltage Regulation" point2="1.  Use of generator voltage regulators" point3="2. Application of capacitors in the distribution substation"/>
                </div>
             </div>  
         </div>

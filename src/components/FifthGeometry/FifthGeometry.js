@@ -435,7 +435,7 @@ function FifthGeometry() {
               </div>
               <div className="geometry__recommendation">
                 <Features title="Salient Features"/>
-                <Features title="Recommendations"/>
+                <Features title="Recommendations" point1="Issue: Extra Ordinary Sag" point2="1.  Use less weight conductor" point3="2. Decrease span between two towers"/>
              </div>
           </div>  
       </div>
