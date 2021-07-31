@@ -1,6 +1,7 @@
 import React from 'react'
 import './Recommendation.css'
 import { Line} from 'react-chartjs-2';
+import { Scale } from 'chart.js';
 
 function Recommendation() {
     return (
@@ -17,6 +18,7 @@ function Recommendation() {
                         borderColor: 'rgba(250, 126, 10, 1)',
                         backgroundColor: 'rgba(250, 126, 10, 0.59)',
                         fill: true,
+                        borderWidth: 7
 
                     }, {
                         data: [5, 10, 15, 20, 25, 30],
@@ -24,6 +26,7 @@ function Recommendation() {
                         borderColor: 'rgba(228, 12, 12, 1)',
                         backgroundColor: 'rgba(228, 12, 12, 0.59)',
                         fill: true,
+                        borderWidth: 7
 
                     }],
                 }}
@@ -35,8 +38,10 @@ function Recommendation() {
                         fontColor: "#000",
                         fontSize: 20,
                     },
+                    scaleFontColor: 'red',
 
-                }}
+                }
+            }
             />
 
                   <Line 
@@ -48,6 +53,7 @@ function Recommendation() {
                         borderColor: 'rgba(250, 126, 10, 1)',
                         backgroundColor: 'rgba(250, 126, 10, 0.59)',
                         fill: true,
+                        borderWidth: 7
 
                     }, {
                         data: [5, 10, 15, 20, 25, 30],
@@ -55,6 +61,7 @@ function Recommendation() {
                         borderColor: 'rgba(228, 12, 12, 1)',
                         backgroundColor: 'rgba(228, 12, 12, 0.59)',
                         fill: true,
+                        borderWidth: 7
 
                     }],
                 }}
@@ -66,6 +73,8 @@ function Recommendation() {
                         fontColor: "#000",
                         fontSize: 20,
                     },
+                    scaleFontColor: 'red',
+                    
 
                 }}
             />

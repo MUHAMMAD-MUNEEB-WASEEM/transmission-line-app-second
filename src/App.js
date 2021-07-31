@@ -9,6 +9,8 @@ import ThirdGeometry from './components/ThirdGeometry/ThirdGeometry';
 import FourthGeometry from './components/FourthGeometry/FourthGeometry';
 import FifthGeometry from './components/FifthGeometry/FifthGeometry';
 import SixthGeometry from './components/SixthGeometry/SixthGeometry';
+import FourthGeometryRecommended from './components/FourthGeometry/FourthGeometryRecommended';
+import FourthGeometryRecommended2 from './components/FourthGeometry/FourthGeometryRecommended2';
 
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
         <Route path='/fourthgeometry' element={<FourthGeometry/>}></Route>
         <Route path='/fifthgeometry' element={<FifthGeometry/>}></Route>
         <Route path='/sixthgeometry' element={<SixthGeometry/>}></Route>
-        <Route path='/recommendation' element={<Recommendation/>}></Route>
+        <Route path='/recommendation' element={<FourthGeometryRecommended2/>}></Route>
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './FourthGeometry.css';
 import math, {
-    atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
+    atan2, chain, derivative, e, evaluate, tan, log, pi, pow, round, sqrt, complex, re, im, add, multiply, atan, divide, subtract, cos, square, LN10, LN2, log2, acos, unit, ceil, format, sin
   } from 'mathjs'
 import Features from '../SalientFeature/Features';
 
@@ -99,7 +99,7 @@ function FourthGeometry() {
 
     //Y
 
-    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap);
+    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap, conductorLength);
     console.log("Y", Y);
 
        //Efficiency
@@ -367,6 +367,25 @@ function FourthGeometry() {
 
 
     console.log(windPressure)
+
+    //Recommendation
+
+    const oldTanPfr = tan(acos(Pfr))
+    console.log('tanPfr', oldTanPfr);
+
+    const oldRecieveReactivePower = multiply(Pr, oldTanPfr)
+    console.log("Old Reactive Power", oldRecieveReactivePower)
+
+    const PfrNew = 0.95;
+
+    const newTanPfr = tan(acos(PfrNew))
+    console.log('tanPfr', oldTanPfr);
+
+    const newRecieveReactivePower = multiply(Pr, newTanPfr)
+    console.log("New Reactive Power", newRecieveReactivePower)
+
+    const capacityOfShuntCapacitor = oldRecieveReactivePower - newRecieveReactivePower;
+    console.log("shunt capacitor capacity",capacityOfShuntCapacitor)
     
     return (
       <div className="geometry">

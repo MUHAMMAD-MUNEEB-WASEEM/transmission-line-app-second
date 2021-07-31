@@ -101,7 +101,7 @@ function FirstGeometry() {
 
     //Y
 
-    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap);
+    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap, conductorLength);
     console.log("Y", Y);
 
        //Efficiency
@@ -144,7 +144,7 @@ function FirstGeometry() {
     const A = add(1,multiply(Z,multiply(0.5, Y)))
     console.log("A", A)
 
-    const C = add(1,multiply(Z,multiply(0.25,Y)))
+    const C = multiply(add(1,multiply(Z,multiply(0.25,Y))), Y)
     console.log("C", C);
 
     const Ir = divide(Pr,(multiply(sqrt(3),lineVoltage,0.80)));
@@ -172,7 +172,7 @@ function FirstGeometry() {
     // const VsAngleStar = add(VsAngle, 30);
     // console.log(VsLineMagStar)
       
-    const Is = add(multiply(C, multiply(Vr,Y)),multiply(A, RectIr))
+    const Is = add(multiply(C, Vr),multiply(A, RectIr))
     console.log('Is', Is) 
 
     const IsMag = sqrt(add(square(Is.re), square(Is.im)))

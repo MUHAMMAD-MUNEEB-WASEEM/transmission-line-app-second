@@ -99,7 +99,7 @@ function SixthGeometry() {
 
     //Y
 
-    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap);
+    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap, conductorLength);
     console.log("Y", Y);
 
        //Efficiency

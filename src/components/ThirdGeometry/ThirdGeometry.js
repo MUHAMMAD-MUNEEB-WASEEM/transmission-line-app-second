@@ -85,21 +85,33 @@ function ThirdGeometry() {
     const r = divide(overAllDiameter, 2)
     console.log("radius", r);
 
+    //GMR Bundled
+
+    // const GMR = multiply(r, 0.7788);
+    // console.log("GMR", GMR)
+    
     const GMR = multiply(r, 0.7788);
     console.log("GMR", GMR) 
 
-    const L = format(multiply(0.0000002, log(divide(Deq,GMR),2.718))*1000,{notation: 'exponential'})
+    const d = multiply(divide(0.883,12), 0.3048);
+    console.log("d", d);
+    
+    const GMRBun = multiply(pow(multiply(GMR, multiply(d, d, d)), 0.25),1.09);
+    console.log("GMR Bundled", GMRBun) 
+
+
+    const L = format(multiply(0.0000002, log(divide(Deq,GMRBun),2.718))*1000,{notation: 'exponential'})
 
     console.log("L", L);
 
     //C
 
-    const Cap = format(divide(multiply(2, 3.142, 0.00000000885), log(divide(Deq,GMR),2.718)),{notation: 'exponential'})
+    const Cap = format(divide(multiply(2, 3.142, 0.00000000885), log(divide(Deq,GMRBun),2.718)),{notation: 'exponential'})
     console.log("Cap", Cap);
 
     //Y
 
-    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap);
+    const Y = multiply(sqrt(-1), 2, 3.142, 50, Cap, conductorLength);
     console.log("Y", Y);
 
        //Efficiency
