@@ -38,7 +38,11 @@ function Recommendation() {
                         fontColor: "#000",
                         fontSize: 20,
                     },
-                    scaleFontColor: 'red',
+                    scales: {        xAxes: [{
+                        ticks: {
+                            fontColor: "#fff", // This here that I changed.
+                        },
+                    }]}
 
                 }
             }
@@ -73,7 +77,6 @@ function Recommendation() {
                         fontColor: "#000",
                         fontSize: 20,
                     },
-                    scaleFontColor: 'red',
                     
 
                 }}

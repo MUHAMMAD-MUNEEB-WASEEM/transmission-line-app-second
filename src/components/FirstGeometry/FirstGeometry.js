@@ -41,7 +41,8 @@ function FirstGeometry() {
     const [conductorLength, setConductorLength] = useState(200);
     const [Pr, setPr] = useState(200*1000000);
     const [span, setSpan] = useState(400);
-    const [interPhaseDistance, setInterPhaseDistance] = useState(8)
+    const [interPhaseDistance1, setInterPhaseDistance1] = useState(8)
+    const [interPhaseDistance2, setInterPhaseDistance2] = useState(8)
     const [outerPhaseDistance, setOuterPhaseDistance] = useState(16);
     const [overAllDiameter, setOverAllDiameter] = useState(31.77*0.001);
     const [eachDiameter, setEachDiameter] = useState(3.53); //mm
@@ -372,35 +373,35 @@ function FirstGeometry() {
                 
                   <h4>Line Voltage: <span className="answer">{lineVoltage} V</span> </h4>
                   <h4>Type of Circuits: {typeOfCircuits}</h4>
-                  <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4>
+                  {/* <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4> */}
                   <h4>Conductor Length: {conductorLength} km</h4>
                   <h4>Conductor Weight: {conductorWeight} N/m</h4>
-                  <h4>Type Of Conductors: {typeOfConductors}</h4>
+                  {/* <h4>Type Of Conductors: {typeOfConductors}</h4> */}
                   <h4>Height of Tower: {heightOfTower} m</h4>
                   <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
                   <h4>Voltage Level: {voltageLevel}</h4>
-                  <h4>Arcing Horn: {archingHorn}</h4>
-                  <h4>Line Configuration: {lineConfiguration}</h4>
+                  {/* <h4>Arcing Horn: {archingHorn}</h4> */}
+                  {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
                   <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
                   {/* <h4>Bundled Conductors: {bundledConductors}</h4> */}
-                  <h4>Types Of Insulators: {typesOfInsulators}</h4>
+                  {/* <h4>Types Of Insulators: {typesOfInsulators}</h4>
                   <h4>No of insulator dics in one string: {noOfDisc}</h4>
-                  <h4>Number of Insulators: {numberOfInsulators}</h4>
+                  <h4>Number of Insulators: {numberOfInsulators}</h4> */}
                   <h4>Ground Clearance: {groundClearance} m</h4>
-                  <h4>Loading Factors: {loadingFactor}</h4>
-                  <h4>Type of Dampers: {typeOfDamper}</h4>
+                  {/* <h4>Loading Factors: {loadingFactor}</h4> */}
+                  {/* <h4>Type of Dampers: {typeOfDamper}</h4> */}
                   <h4>Tower Type: Suspension Tower</h4>
-                  <h4>Vibrations: Resonant</h4>
-                  <h4>Guard Ring/Corona Ring: {guardRing}</h4>
-                  <h4>Wind Pressure: {windPressure} kg/sqm</h4>
+                  {/* <h4>Vibrations: Resonant</h4> */}
+                  {/* <h4>Guard Ring/Corona Ring: {guardRing}</h4> */}
+                  <h4>Wind Pressure:  <input value={windPressure} onChange={e => setWindPressure(e.target.value)} placeholder="Enter Wind Pressure" type="number"/> kg/sqm <br/>(65-70 kg/sqm)</h4>
                   <h4>Wind Velocity: {windVelocity} m/s</h4>
                   <h4>Temperature: {temperature}</h4>
-                  <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
-                  <h4>Spacing between phase conductors: {interPhaseDistance} m</h4>
-                  <h4>Span: {span}m</h4>
+                  {/* <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4> */}
+                  <h4>Spacing between phase conductors: {interPhaseDistance1}, {interPhaseDistance2}, {outerPhaseDistance} m</h4>
+                  <h4>Span:  <input value={span} onChange={e => setSpan(e.target.value)} placeholder="Enter Span" type="number"/> m <br/>(380-400 m)</h4>
                   <br/>
                   <h3>**** Calculated Results ****</h3>
                   <br/>
@@ -417,7 +418,7 @@ function FirstGeometry() {
                   <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
                   <h4>Sag Under Errection Condition: {sagErrect} m</h4>
                   <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
-                  <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
+                  <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>  
               <div className="geometry__recommendation">
                   <Features title="Salient Features"/>

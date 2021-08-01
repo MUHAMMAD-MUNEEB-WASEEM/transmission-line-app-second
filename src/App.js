@@ -24,7 +24,8 @@ function App() {
         <Route path='/fourthgeometry' element={<FourthGeometry/>}></Route>
         <Route path='/fifthgeometry' element={<FifthGeometry/>}></Route>
         <Route path='/sixthgeometry' element={<SixthGeometry/>}></Route>
-        <Route path='/recommendation' element={<FourthGeometryRecommended2/>}></Route>
+        <Route path='/fourthgeometry/recommendation1' element={<FourthGeometryRecommended/>}></Route>
+        <Route path='/fourthgeometry/recommendation2' element={<FourthGeometryRecommended2/>}></Route>
       </Routes>
     </Router>
   );
