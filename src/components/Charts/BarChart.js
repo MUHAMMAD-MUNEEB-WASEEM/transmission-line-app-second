@@ -10,7 +10,7 @@ function BarChart({title1, title2, value1, value2, title, ylabel}) {
                 datasets: [
                     {
                     label: title,
-                    backgroundColor: '#fad017',
+                    backgroundColor: '#0099CA',
                     data: [value1, value2],
                     },
                 ],

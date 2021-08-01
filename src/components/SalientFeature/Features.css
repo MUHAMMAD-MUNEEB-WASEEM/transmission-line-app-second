@@ -1,11 +1,11 @@
 .features{
-    background: black;
+    background: white;
     width: 500px;
     height: 280px;
     text-align: left;
     margin-right: 300px;
     border-radius: 50px;
-    border: 2px solid #fad017;
+    border: 2px solid red;
     margin-bottom: 3%;
     margin-left: 7%;
 }
@@ -15,7 +15,7 @@
 }
 
 .features__heading > h2{
-    color: #fad017;
+    color: red;
     text-align: left;
     margin-bottom: 7%;
 }
@@ -26,7 +26,7 @@
 
 }
 .features__point > p{
-    color: white;
+    color: black;
     margin-bottom: 7px;
     font-size: 20px;
 }

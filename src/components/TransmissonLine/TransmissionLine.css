@@ -6,7 +6,7 @@
 .transmissonline__heading{
     align-items: center;
     text-align: center;
-    color: #fad017;
+    color: red;
     margin-bottom: 10px;
 }
 
@@ -14,8 +14,9 @@
 .transmissonline__button{
     margin-top: 20px;
     padding: 10px 15px;
-    background: rgb(63,94,251);
-    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    /* background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+    background-color: black;
     color: black;
     font-weight: 500;
     font-size: 17px;

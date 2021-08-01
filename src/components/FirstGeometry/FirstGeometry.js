@@ -365,7 +365,7 @@ function FirstGeometry() {
     
     return (
         <div className="geometry">
-            <h1 className="parameters__heading">Transmission Line Parameters</h1>
+            <h1 className="parameters__heading">Parameters Of Transmission Line</h1>
             <div className="sides">
               <div className="geometry__content">
 

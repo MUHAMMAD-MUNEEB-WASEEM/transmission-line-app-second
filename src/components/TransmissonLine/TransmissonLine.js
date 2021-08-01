@@ -10,7 +10,7 @@ function TransmissonLine({title, image, path}) {
             <h2 className="transmissonline__heading">{title}</h2>
             <img className="transmissionline__image" src={image}/>
             <Link to={path}>
-                <button className="transmissonline__button">Open Geometry</button>
+                <button className="transmissonline__button">View Tx Line</button>
             </Link>
         </div>
     )
