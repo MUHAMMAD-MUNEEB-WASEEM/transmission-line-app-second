@@ -397,7 +397,7 @@ function FifthGeometry() {
                   <h4>Voltage Level: {voltageLevel}</h4>
                   {/* <h4>Arcing Horn: {archingHorn}</h4> */}
                   {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                  {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -436,7 +436,7 @@ function FifthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-                <Features title="Salient Features"/>
+                <Features title="Salient Features" point1="1. This system is economical due to longer span" point2="2. It has very less corona loss due to installation of bundled conductors"/>
                 <Features title="Recommendations" point1="Issue: Extra Ordinary Sag" point2="1.  Use less weight conductor" point3="2. Decrease span between two towers"/>
              </div>
           </div>  

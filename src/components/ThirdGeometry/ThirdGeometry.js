@@ -36,7 +36,7 @@ function ThirdGeometry() {
     const [windVelocity, setWindVelocity] = useState(39);
     const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('30/7/3 mm');
     const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [numberOfBundledConductors, setNumberOfBundledConductors] = useState(6);
+    const [numberOfBundledConductors, setNumberOfBundledConductors] = useState(4);
     const [conductorWeight, setConductorWeight] = useState(4.19);
     const [conductorLength, setConductorLength] = useState(80);
     const [Pr, setPr] = useState(50*1000000);
@@ -398,7 +398,7 @@ function ThirdGeometry() {
                   <h4>Voltage Level: {voltageLevel}</h4>
                   {/* <h4>Arcing Horn: {archingHorn}</h4> */}
                   {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                  {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -437,7 +437,7 @@ function ThirdGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
                 </div>
                 <div className="geometry__recommendation">
-                  <Features title="Salient Features"/>
+                  <Features title="Salient Features" point1="1. Good voltage regulation due to less voltage drop" point2="2. Lower Corona loss"/>
                   <Features title="Recommendations" point1="Issue: Less Power Factor" point2="1.  The Transmission line was originally designed at lower power factor. So it is suggested to increase it by installing suitable capacitor banks"/>
                </div>
             </div>  

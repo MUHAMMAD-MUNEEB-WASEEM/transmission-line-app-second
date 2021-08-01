@@ -21,11 +21,11 @@ function MainTransmission() {
             <div className="topbar">
 
                 <h1 className="main__heading">Transmission Line Analyses</h1>
-                <div className="app__recommendation">
+                {/* <div className="app__recommendation">
                     <Link to='recommendation'>
                         <button className="transmissonline__button">Recommendations</button>
                     </Link>
-                </div>
+                </div> */}
 
             </div>
         

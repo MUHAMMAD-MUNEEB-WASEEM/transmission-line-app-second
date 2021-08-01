@@ -18,9 +18,9 @@ function FourthGeometryRecommended2() {
     const [lineVoltage, setLineVoltage] = useState(110*1000)
     const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
     const [typeOfConductors, setTypeOfConductors] = useState('Non-Bundled');
-    const [conductorMaterial, setConductorMaterial] = useState('ACSR Panther');
+    const [conductorMaterial, setConductorMaterial] = useState('ACSR Goat');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
-    const [voltageLevel, setVoltageLevel] = useState('DC')
+    const [voltageLevel, setVoltageLevel] = useState('AC')
     const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
     const [groundClearance, setGroundClearance] = useState(11);
     const [archingHorn, setArchingHorn] = useState('Present');
@@ -398,27 +398,27 @@ function FourthGeometryRecommended2() {
             <div className="geometry__content">
               {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
               
-                <h4>Line Voltage: {lineVoltage} V </h4>
-                <h4>Type of Circuits: {typeOfCircuits}</h4>
-                <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4>
-                <h4>Conductor Length: {conductorLength} km</h4>
-                <h4>Conductor Weight: {conductorWeight} N/m</h4>
-                <h4>Type Of Conductors: {typeOfConductors}</h4>
-                <h4>Height of Tower: {heightOfTower}</h4>
+                {/* <h4>Line Voltage: {lineVoltage} V </h4>
+                <h4>Type of Circuits: {typeOfCircuits}</h4> */}
+                {/* <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4> */}
+                {/* <h4>Conductor Length: {conductorLength} km</h4>
+                <h4>Conductor Weight: {conductorWeight} N/m</h4> */}
+                {/* <h4>Type Of Conductors: {typeOfConductors}</h4> */}
+                {/* <h4>Height of Tower: {heightOfTower}</h4> */}
                 <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
-                <h4>Voltage Level: {voltageLevel}</h4>
+                {/* <h4>Voltage Level: {voltageLevel}</h4>
                 <h4>Arcing Horn: {archingHorn}</h4>
-                <h4>Line Configuration: {lineConfiguration}</h4>
+                <h4>Line Configuration: {lineConfiguration}</h4> */}
                 {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                 <h4>Conductor Material: {conductorMaterial}</h4>
-                <h4>Earth Wire: {earthWire}</h4>
-                <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
+                {/* <h4>Earth Wire: {earthWire}</h4>
+                <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4> */}
                 {/* <h4>Bundled Conductors: {bundledConductors}</h4> */}
-                <h4>Types Of Insulators: {typesOfInsulators}</h4>
+                {/* <h4>Types Of Insulators: {typesOfInsulators}</h4>
                 <h4>No of insulator dics in one string: {noOfDisc}</h4>
-                <h4>Number of Insulators: {numberOfInsulators}</h4>
+                <h4>Number of Insulators: {numberOfInsulators}</h4> */}
                 {/* <h4>Ground Clearance: {groundClearance} m</h4> */}
-                <h4>Loading Factors: {loadingFactor}</h4>
+                {/* <h4>Loading Factors: {loadingFactor}</h4>
                 <h4>Type of Dampers: {typeOfDamper}</h4>
                 <h4>Tower Type: Suspension Tower</h4>
                 <h4>Vibrations: Resonant</h4>
@@ -428,24 +428,24 @@ function FourthGeometryRecommended2() {
                 <h4>Temperature: {temperature}</h4>
                 <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
                 <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
-                <h4>Span: {span}m</h4>
+                <h4>Span: {span}m</h4> */}
                 <br/>
                 <h3>**** Calculated Results ****</h3>
                 <br/>
-                <h4>Inductance: {L}</h4>
+                {/* <h4>Inductance: {L}</h4>
                 <h4>Capacitance: {Cap} F/kM</h4>
                 <h4>Susceptance: j{Y.im} siemens/phase</h4>
-                <h4>Impedence: {ZReFormat} + j{ZImFormat}</h4>
+                <h4>Impedence: {ZReFormat} + j{ZImFormat}</h4> */}
                 <h4>Efficiency: {efficiency}%</h4>
-                <h4>SIL: {SIL} W</h4>
+                {/* <h4>SIL: {SIL} W</h4> */}
                 <h4>Line Efficiency: {lineEfficiency}</h4>
-                <h4>Power Factor: {Pfs}</h4>
+                {/* <h4>Power Factor: {Pfs}</h4> */}
                 <h4>Voltage Regulation: {voltageRegulation}</h4>
-                <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
+                {/* <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
                 <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
                 <h4>Sag Under Errection Condition: {sagErrect} m</h4>
                 <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
-                <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4>
+                <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4> */}
               </div>
           </div>
           <div className="chart__section">

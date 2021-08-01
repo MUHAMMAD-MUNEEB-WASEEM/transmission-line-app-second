@@ -382,7 +382,7 @@ function FirstGeometry() {
                   <h4>Voltage Level: {voltageLevel}</h4>
                   {/* <h4>Arcing Horn: {archingHorn}</h4> */}
                   {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                  {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -421,7 +421,7 @@ function FirstGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>  
               <div className="geometry__recommendation">
-                  <Features title="Salient Features"/>
+                  <Features title="Salient Features" point1="1. This system has higher efficiency" point2="2. This system is accompanied with high surge imppedence loading"/>
                   <Features title="Recommendations" point1="Issue: High Corona Loss" point2="1. Increasing the distance between conductors" point3="2. Use of bundled conductors"/>
                </div>
           </div>

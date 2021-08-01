@@ -387,7 +387,7 @@ function SixthGeometry() {
                   <h4>Voltage Level: {voltageLevel}</h4>
                   {/* <h4>Arcing Horn: {archingHorn}</h4> */}
                   {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                  {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -426,7 +426,7 @@ function SixthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-                <Features title="Salient Features"/>
+              <Features title="Salient Features" point1="1. This material used for conduction is of less resistance which results in less power dissipation in form of heat." point2="2. Better efficiency due to less power losses"/>
                 <Features title="Recommendations" point1="Issue: Less Value of SIL" point2="1.  Increase an area of Earth Wire to have less resistance" point3="2. Increase number of circuits of Earth wire to increase SIL"/>
              </div>
           </div>  

@@ -18,7 +18,7 @@ function FourthGeometry() {
     const [typeOfConductors, setTypeOfConductors] = useState('Non-Bundled');
     const [conductorMaterial, setConductorMaterial] = useState('ACSR Panther');
     const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
-    const [voltageLevel, setVoltageLevel] = useState('DC')
+    const [voltageLevel, setVoltageLevel] = useState('AC')
     const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
     const [groundClearance, setGroundClearance] = useState(11);
     const [archingHorn, setArchingHorn] = useState('Present');
@@ -414,7 +414,7 @@ function FourthGeometry() {
                   <h4>Voltage Level: {voltageLevel}</h4>
                   {/* <h4>Arcing Horn: {archingHorn}</h4> */}
                   {/* <h4>Line Configuration: {lineConfiguration}</h4> */}
-                  <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4>
+                  {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                   <h4>Conductor Material: {conductorMaterial}</h4>
                   <h4>Earth Wire: {earthWire}</h4>
                   <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4>
@@ -453,7 +453,7 @@ function FourthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-                <Features title="Salient Features"/>
+                <Features title="Salient Features" point1="1. This system has less corona loss" point2="2. This system has fine value of sag"/>
                 <Features title="Recommendations" point1="Issue: Lower Efficiency" point2="1.  Change conductor type to have less resistance to get maximum power output" point3="2. Use of Shunt Capacitors to reduce load on generation side which ulitmately increase efficiency"/>
              </div>
           </div>  
