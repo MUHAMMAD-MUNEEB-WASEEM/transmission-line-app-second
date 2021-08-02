@@ -12,34 +12,10 @@ function FourthGeometryRecommended2() {
 
 
 //useState
-
-    //by default
-    const [heightOfTower, setHeightOfTower] = useState(22.68)
     const [lineVoltage, setLineVoltage] = useState(110*1000)
-    const [typesOfInsulators, setTypesOfInsulators] = useState('Suspension Type')
-    const [typeOfConductors, setTypeOfConductors] = useState('Non-Bundled');
     const [conductorMaterial, setConductorMaterial] = useState('ACSR Goat');
-    const [typeOfConductorSupport, setTypeOfConductorSupport] = useState('Tower');
-    const [voltageLevel, setVoltageLevel] = useState('AC')
-    const [sizeOfEarthWires, setsizeOfEarthWires] = useState('7/3.15');
-    const [groundClearance, setGroundClearance] = useState(11);
-    const [archingHorn, setArchingHorn] = useState('Present');
-    const [lineConfiguration, setLineConfiguration] = useState('Vertical Parallel')
-    const [conductorCrossSectionalArea, setConductorCrossSectionalArea] = useState(2.615)
-    const [typeOfCircuits, setTypeOfCircuits] = useState('Double');
-    const [earthWire, setEarthWire] = useState('Present')
-    // const [bundledConductors, setBundledConductors] = useState('Triangular')
-    const [conductorSupportLevel, setConductorSupportLevel] = useState('Equal')
-    const [noOfDisc, setNoOfDisc] = useState('8')
-    const [typeOfDamper, setTypeOfDamper] = useState('Stock Bridge Damper')
-    const [loadingFactor, setLoadingFactor] = useState('Yes')
-    const [guardRing, setGuardRing] = useState('Yes');
-    const [temperature, setTemperature] = useState(32);
     const [windPressure, setWindPressure] = useState(48.23); //should be taken from user
-    const [windVelocity, setWindVelocity] = useState(39);
     const [sizeOfPhaseConductor, setSizeOfPhaseConductor] = useState('30/7/3.71 mm');
-    const [numberOfInsulators, setNumberOfInsulators] = useState(6);
-    const [conductorWeight, setConductorWeight] = useState(9.56);
     const [conductorLength, setConductorLength] = useState(100);
     const [Pr, setPr] = useState(40*1000000);
     const [span, setSpan] = useState(200);
@@ -50,32 +26,6 @@ function FourthGeometryRecommended2() {
     const [eachDiameter, setEachDiameter] = useState(3.71); //mm
     const [weight, setWeight] = useState(1489);
     const [ultimateStrength, setUltimateStrength] = useState(135.8*1000)
-
-    //input
-    const [lengthOfCrossArm, setLengthOfCrossArm] = useState(0)
-    const [totalNoOfSpacers, setTotalNoOfSpacers] = useState(0);
-    const [spacingBetweenBundledConductors, setSpacingBetweenBundledConductors] = useState(0)
-
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-    // const [heightOfTower, setHeightOfTower] = useState(10)
-
-    // const sendMessage = (e) => {
-
-    //     e.preventDefault(); //avoiding from refresh
-    //     setLineVoltage(0)
-    // }
 
     console.log(lineVoltage)
     console.log("overAll diameter", overAllDiameter)
@@ -108,16 +58,6 @@ function FourthGeometryRecommended2() {
 
        //Efficiency
 
-    // Vs, Vr, Is, Ir, Pfs, Pfr, Z(R and X), R(L and A), X(L), Pr 
-
-    //Vr = 400kv
-    //pr = 200MW
-    //pfr = 0.85
-    //Ir known from above values
-
-    const row = 0.00000000001729 //km
-    // const R =  (row*conductorLength)/(5.97*0.000000001)
-
     const R = 0.0891;
 
     const R85 = multiply(divide(add(228, 75), add(228, 20)), R) * conductorLength;
@@ -128,13 +68,6 @@ function FourthGeometryRecommended2() {
     const XL = multiply(2, 3.142, 50, L)*conductorLength       //To be updated with new inductance value
 
     const Z = complex(R85,XL);
-    // const Z = 0.57 //to be updated with imaginart
-    // const a = complex(4, 0);
-    // const b = complex(5, 2)
-    // const com = add(a,b)
-    // const mult = multiply(com, 2)
-    // console.log(mult)
-    // console.log(com)
 
     console.log("Z", Z)
 
@@ -214,8 +147,6 @@ function FourthGeometryRecommended2() {
     console.log(lineEfficiency)
 
     //Voltage Regulation
-    // const ZMag = sqrt(add(square(Z.re), square(Z.im)));
-    // const YMag = sqrt(add(square(Y.re), square(Y.im)));
     const den = add(1, divide(multiply(Z,Y),2))
     const denMag = sqrt(add(square(den.re), square(den.im)));
     console.log("denMag", denMag)
@@ -244,10 +175,6 @@ function FourthGeometryRecommended2() {
     console.log("RatioForF", RatioForF);
 
     const [F, setF] = useState(0.012)
-
-        // if (RatioForF>=1.4) {
-        //     setF(0.3);
-        // }
 
     console.log("F", F)
     const coronaLoss = format(divide(multiply(0.000021, 50, square(Vr*0.001), F), square(log(divide(Deq,r),10))),5)
@@ -396,56 +323,14 @@ function FourthGeometryRecommended2() {
           <h1 className="parameters__heading">Transmission Line Parameters</h1>
           <div className="sides">
             <div className="geometry__content">
-              {/* <h4>Line Voltage: <input value={lineVoltage} onChange={e => setLineVoltage(e.target.value)} placeholder="Type a message" type="text"/></h4> */}
-              
-                {/* <h4>Line Voltage: {lineVoltage} V </h4>
-                <h4>Type of Circuits: {typeOfCircuits}</h4> */}
-                {/* <h4>Type Of Conductor Support: {typeOfConductorSupport}</h4> */}
-                {/* <h4>Conductor Length: {conductorLength} km</h4>
-                <h4>Conductor Weight: {conductorWeight} N/m</h4> */}
-                {/* <h4>Type Of Conductors: {typeOfConductors}</h4> */}
-                {/* <h4>Height of Tower: {heightOfTower}</h4> */}
                 <h4>Size of Phase Conductors: {sizeOfPhaseConductor}</h4>
-                {/* <h4>Voltage Level: {voltageLevel}</h4>
-                <h4>Arcing Horn: {archingHorn}</h4>
-                <h4>Line Configuration: {lineConfiguration}</h4> */}
-                {/* <h4>Conductor Cross Sectional Area: {conductorCrossSectionalArea} sqcm</h4> */}
                 <h4>Conductor Material: {conductorMaterial}</h4>
-                {/* <h4>Earth Wire: {earthWire}</h4>
-                <h4>Size of Earth Wires: {sizeOfEarthWires} mm</h4> */}
-                {/* <h4>Bundled Conductors: {bundledConductors}</h4> */}
-                {/* <h4>Types Of Insulators: {typesOfInsulators}</h4>
-                <h4>No of insulator dics in one string: {noOfDisc}</h4>
-                <h4>Number of Insulators: {numberOfInsulators}</h4> */}
-                {/* <h4>Ground Clearance: {groundClearance} m</h4> */}
-                {/* <h4>Loading Factors: {loadingFactor}</h4>
-                <h4>Type of Dampers: {typeOfDamper}</h4>
-                <h4>Tower Type: Suspension Tower</h4>
-                <h4>Vibrations: Resonant</h4>
-                <h4>Guard Ring/Corona Ring: {guardRing}</h4>
-                <h4>Wind Pressure:  <input value={windPressure} onChange={e => setWindPressure(e.target.value)} placeholder="Enter Wind Pressure" type="number"/> kg/sqm <br/>(47-50 kg/sqm)</h4>
-                <h4>Wind Velocity: <input value={windVelocity} onChange={e => setWindVelocity(e.target.value)} placeholder="Enter Wind Velocity" type="number"/> m/s <br/>(38-40 m/s)</h4>
-                <h4>Temperature: {temperature}</h4>
-                <h4>Spacing between bundled conductors: {spacingBetweenBundledConductors}</h4>
-                <h4>Spacing between phase conductors: {interPhaseDistance1} , {interPhaseDistance2} , {outerPhaseDistance} m</h4>
-                <h4>Span: {span}m</h4> */}
                 <br/>
                 <h3>**** Calculated Results ****</h3>
                 <br/>
-                {/* <h4>Inductance: {L}</h4>
-                <h4>Capacitance: {Cap} F/kM</h4>
-                <h4>Susceptance: j{Y.im} siemens/phase</h4>
-                <h4>Impedence: {ZReFormat} + j{ZImFormat}</h4> */}
                 <h4>Efficiency: {efficiency}%</h4>
-                {/* <h4>SIL: {SIL} W</h4> */}
                 <h4>Line Efficiency: {lineEfficiency}</h4>
-                {/* <h4>Power Factor: {Pfs}</h4> */}
                 <h4>Voltage Regulation: {voltageRegulation}</h4>
-                {/* <h4>Corona Loss: {coronaLoss} kW/phase/km</h4>
-                <h4>Total Corona Loss: {totalCoronaLoss} kW</h4>
-                <h4>Sag Under Errection Condition: {sagErrect} m</h4>
-                <h4>Sag Under Bad Weather Condition: {sagBad} m</h4>
-                <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad} m</h4> */}
               </div>
           </div>
           <div className="chart__section">

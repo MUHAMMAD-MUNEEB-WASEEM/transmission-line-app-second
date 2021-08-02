@@ -3,7 +3,6 @@ import TransmissonLine from './components/TransmissonLine/TransmissonLine';
 import {BrowserRouter as Router,  Routes, Route } from 'react-router-dom'
 import FirstGeometry from './components/FirstGeometry/FirstGeometry';
 import MainTransmission from './components/MainTransmission/MainTransmission';
-import Recommendation from './components/Recommendation/Recommendation';
 import SecondGeometry from './components/SecondGeometry/SecondGeometry';
 import ThirdGeometry from './components/ThirdGeometry/ThirdGeometry';
 import FourthGeometry from './components/FourthGeometry/FourthGeometry';

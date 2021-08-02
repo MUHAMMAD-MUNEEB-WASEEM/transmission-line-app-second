@@ -21,17 +21,11 @@ function MainTransmission() {
             <div className="topbar">
 
                 <h1 className="main__heading">Electrical Power Transmisson</h1>
-                {/* <div className="app__recommendation">
-                    <Link to='recommendation'>
-                        <button className="transmissonline__button">Recommendations</button>
-                    </Link>
-                </div> */}
 
             </div>
         
             <div className="transmisson">
 
-                {/*first geometry*/}
                 <TransmissonLine title="400 kV Tx Line" image={image1} path="firstgeometry"/>
                 <TransmissonLine title="220 kV Tx Line" image={image2} path="secondgeometry"/>
                 <TransmissonLine title="132 kV Tx Line" image={image3} path="thirdgeometry"/>
