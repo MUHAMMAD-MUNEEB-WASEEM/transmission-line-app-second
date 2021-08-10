@@ -342,7 +342,6 @@ function SecondGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
                 </div>
                 <div className="geometry__recommendation">
-                  <Features title="Salient Features" point1="1. This system has less corona loss w.r.t line voltage" point2="2. This system is economical as its span is better comparing similar voltage levels"/>
                   <Features title="Recommendations" point1="Issue: Voltage Regulation" point2="1.  Use of generator voltage regulators" point3="2. Application of capacitors in the distribution substation"/>
                </div>
             </div>  

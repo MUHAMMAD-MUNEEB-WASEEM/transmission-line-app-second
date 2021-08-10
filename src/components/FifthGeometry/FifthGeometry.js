@@ -357,7 +357,6 @@ function FifthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-                <Features title="Salient Features" point1="1. This system is economical due to longer span" point2="2. It has very less corona loss due to installation of bundled conductors"/>
                 <Features title="Recommendations" point1="Issue: Extra Ordinary Sag" point2="1.  Use less weight conductor" point3="2. Decrease span between two towers"/>
              </div>
           </div>  

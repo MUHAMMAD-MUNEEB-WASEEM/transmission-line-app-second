@@ -25,13 +25,18 @@ function MainTransmission() {
             </div>
         
             <div className="transmisson">
-
-                <TransmissonLine title="400 kV Tx Line" image={image1} path="firstgeometry"/>
-                <TransmissonLine title="220 kV Tx Line" image={image2} path="secondgeometry"/>
-                <TransmissonLine title="132 kV Tx Line" image={image3} path="thirdgeometry"/>
-                <TransmissonLine title="110 kV Tx Line" image={image4} path="fourthgeometry"/>
-                <TransmissonLine title="230 kV Tx Line" image={image5} path="fifthgeometry"/>
-                <TransmissonLine title="115 kV Tx Line" image={image6} path="sixthgeometry"/>
+                <div className="transmission__two">
+                    <TransmissonLine title="400 kV Tx Line" image={image1} path="firstgeometry"/>
+                    <TransmissonLine title="220 kV Tx Line" image={image2} path="secondgeometry"/>
+                </div>
+                <div className="transmission__two">
+                    <TransmissonLine title="132 kV Tx Line" image={image3} path="thirdgeometry"/>
+                    <TransmissonLine title="110 kV Tx Line" image={image4} path="fourthgeometry"/>
+                </div>
+                <div className="transmission__two">
+                    <TransmissonLine title="220 kV Tx Line" image={image5} path="fifthgeometry"/>
+                    <TransmissonLine title="115 kV Tx Line" image={image6} path="sixthgeometry"/>
+                </div>
                 
                
             </div>

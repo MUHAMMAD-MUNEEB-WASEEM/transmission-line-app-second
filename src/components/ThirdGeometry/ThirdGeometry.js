@@ -355,7 +355,6 @@ function ThirdGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
                 </div>
                 <div className="geometry__recommendation">
-                  <Features title="Salient Features" point1="1. Good voltage regulation due to less voltage drop" point2="2. Lower Corona loss"/>
                   <Features title="Recommendations" point1="Issue: Less Power Factor" point2="1.  The Transmission line was originally designed at lower power factor. So it is suggested to increase it by installing suitable capacitor banks"/>
                </div>
             </div>  

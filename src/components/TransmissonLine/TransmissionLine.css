@@ -1,5 +1,5 @@
 /* .transmissonline{
-    padding-left: 100px;
+    padding-right: 500px;
 } */
 
 
@@ -7,7 +7,9 @@
     align-items: center;
     text-align: center;
     color: red;
+    font-size: 35px;
     margin-bottom: 10px;
+    margin-left: -150px;
 }
 
 
@@ -20,11 +22,11 @@
     color: black;
     font-weight: 500;
     font-size: 17px;
-    margin-left: 6%;
+    margin-left: 9%;
     color: white;
     font-weight: 600;
 }
 .transmissionline__image{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
 }

@@ -371,7 +371,6 @@ function FourthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-                <Features title="Salient Features" point1="1. This system has less corona loss" point2="2. This system has fine value of sag"/>
                 <Features title="Recommendations" point1="Issue: Lower Efficiency" point2="1.  Change conductor type to have less resistance to get maximum power output" point3="2. Use of Shunt Capacitors to reduce load on generation side which ulitmately increase efficiency"/>
              </div>
           </div>  

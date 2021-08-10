@@ -10,19 +10,24 @@
 }
 
 .transmisson{
-    margin-top: 60px;
-    display: flex;
-    justify-content: space-between;
+    margin-top: 47px;
+    justify-content: space-evenly;
+    
+    margin-left: 260px;
   }
+.transmission__two{
+    display: flex;
+
+}
 
   .transmissonline__button{
     margin-top: 20px;
-    padding: 10px 15px;
+    padding: 10px 40px;
     background-color: black;
     color: white;
     font-weight: 500;
     font-size: 17px;
-    margin-left: 6%;
+    margin-left: 13%;
     font-weight: 600;
     border-radius: 20px;
     border: 2px solid red;
@@ -42,7 +47,7 @@
     flex: 1;
     align-items: center;
     text-align: center;
-    margin-right: -110px;
+    margin-right: -80px;
     padding-top: 15px;
   }
 

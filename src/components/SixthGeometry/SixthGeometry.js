@@ -343,7 +343,6 @@ function SixthGeometry() {
                   <h4>Vertical Sag Under Bad Weather Condition: {sagVerticalBad}m</h4>
               </div>
               <div className="geometry__recommendation">
-              <Features title="Salient Features" point1="1. This material used for conduction is of less resistance which results in less power dissipation in form of heat." point2="2. Better efficiency due to less power losses"/>
                 <Features title="Recommendations" point1="Issue: Less Value of SIL" point2="1.  Increase an area of Earth Wire to have less resistance" point3="2. Increase number of circuits of Earth wire to increase SIL"/>
              </div>
           </div>  
